@@ -6,12 +6,12 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-public class Tuple1<T> implements Tuple<T>, Comparable<Tuple1<T>> {
+public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
     private static final long serialVersionUID = -8854900772811744378L;
 
-    private final T value0;
+    private final T0 value0;
 
-    protected Tuple1(T value0) {this.value0 = value0;}
+    protected Tuple1(T0 value0) {this.value0 = value0;}
 
     public <E> Tuple1<E> of(E value0) {
         return new Tuple1<>(value0);
@@ -26,15 +26,15 @@ public class Tuple1<T> implements Tuple<T>, Comparable<Tuple1<T>> {
         return new Tuple1<>(iterator.next());
     }
 
-    public void unfold(Consumer<T> valueConsumer) {
+    public void unfold(Consumer<T0> valueConsumer) {
         valueConsumer.accept(getValue0());
     }
 
-    public <R> R unfoldResult(Function<T, R> valueFunction) {
+    public <R> R unfoldResult(Function<T0, R> valueFunction) {
         return valueFunction.apply(getValue0());
     }
 
-    public T getValue0() {
+    public T0 getValue0() {
         return value0;
     }
 
@@ -43,7 +43,7 @@ public class Tuple1<T> implements Tuple<T>, Comparable<Tuple1<T>> {
     }
 
     @SuppressWarnings("unchecked")
-    @Override public <E extends T> E get(int i) {
+    @Override public <E> E get(int i) {
         switch (i) {
             case 0: return (E) getValue0();
         }
@@ -56,7 +56,7 @@ public class Tuple1<T> implements Tuple<T>, Comparable<Tuple1<T>> {
     }
 
     @SuppressWarnings("unchecked")
-    @Override public int compareTo(Tuple1<T> o) {
+    @Override public int compareTo(Tuple1<T0> o) {
         return Comparator.nullsFirst(Comparator.<Comparable>naturalOrder())
                 .compare((Comparable) this.getValue0(), (Comparable) o.getValue0());
     }

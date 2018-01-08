@@ -7,11 +7,11 @@ import java.util.Spliterators;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-interface Tuple<T> extends Serializable, Iterable<T> {
+interface Tuple extends Serializable, Iterable<Object> {
 
     int getSize();
 
-    <E extends T> E get(int i);
+    <E> E get(int i);
 
     default Object[] toArray() {
         final Object[] result = new Object[getSize()];
@@ -21,30 +21,30 @@ interface Tuple<T> extends Serializable, Iterable<T> {
         return result;
     }
 
-    @Override default Iterator<T> iterator() {
-        return new TupleIterator<>(this);
+    @Override default Iterator<Object> iterator() {
+        return new TupleIterator(this);
     }
 
-    @Override default Spliterator<T> spliterator() {
+    @Override default Spliterator<Object> spliterator() {
         return Spliterators.spliterator(iterator(), getSize(),
                 Spliterator.SIZED | Spliterator.IMMUTABLE | Spliterator.ORDERED);
     }
 
-    default Stream<T> stream() {
+    default Stream<Object> stream() {
         return StreamSupport.stream(spliterator(), false);
     }
 
-    class TupleIterator<T> implements Iterator<T> {
-        private final Tuple<T> tuple;
+    class TupleIterator implements Iterator<Object> {
+        private final Tuple tuple;
         private int index;
 
-        TupleIterator(Tuple<T> tuple) {this.tuple = tuple;}
+        TupleIterator(Tuple tuple) {this.tuple = tuple;}
 
         @Override public boolean hasNext() {
             return index < tuple.getSize();
         }
 
-        @Override public T next() {
+        @Override public Object next() {
             return tuple.get(index++);
         }
     }

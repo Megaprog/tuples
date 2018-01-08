@@ -1,9 +1,7 @@
 package org.jmmo.tuple;
 
-import java.util.Objects;
-
-public class Tuple0 implements Tuple<Void>, Comparable<Tuple0> {
-    private static final long serialVersionUID = -5035901162805121584L;
+public class Tuple0 implements Tuple, Comparable<Tuple0> {
+    private static final long serialVersionUID = 8036223661372630498L;
 
     private static final Tuple0 INSTANCE = new Tuple0();
 
@@ -18,7 +16,7 @@ public class Tuple0 implements Tuple<Void>, Comparable<Tuple0> {
         return 0;
     }
 
-    @Override public <E extends Void> E get(int i) {
+    @Override public <E> E get(int i) {
         throw new IndexOutOfBoundsException("Tuple0 has no elements but " + i + " element requested");
     }
 
