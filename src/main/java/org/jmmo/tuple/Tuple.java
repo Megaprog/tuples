@@ -13,7 +13,13 @@ interface Tuple<T> extends Serializable, Iterable<T>, Comparable<Tuple> {
 
     <E extends T> E get(int i);
 
-    Object[] toArray();
+    default Object[] toArray() {
+        final Object[] result = new Object[getSize()];
+        for (int i = 0; i < getSize(); i++) {
+            result[i] = get(i);
+        }
+        return result;
+    }
 
     @Override default Iterator<T> iterator() {
         return new TupleIterator<>(this);
