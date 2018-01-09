@@ -14,7 +14,8 @@ public class Tuple3<T0, T1, T2> implements Tuple, Comparable<Tuple3<T0, T1, T2>>
     private final T1 value1;
     private final T2 value2;
 
-    protected Tuple3(T0 value0, T1 value1, T2 value2) {this.value0 = value0;
+    protected Tuple3(T0 value0, T1 value1, T2 value2) {
+        this.value0 = value0;
         this.value1 = value1;
         this.value2 = value2;
     }
