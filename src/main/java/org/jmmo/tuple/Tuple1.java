@@ -13,16 +13,16 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
 
     protected Tuple1(T0 value0) {this.value0 = value0;}
 
-    public <E> Tuple1<E> of(E value0) {
+    public <V> Tuple1<V> of(V value0) {
         return new Tuple1<>(value0);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, E extends A> Tuple1<E> fromArray(A[] values) {
-        return new Tuple1<>((E) values[0]);
+    public <A, V extends A> Tuple1<V> fromArray(A[] values) {
+        return new Tuple1<>((V) values[0]);
     }
 
-    public <E> Tuple1<E> fromIterator(Iterator<E> iterator) {
+    public <V> Tuple1<V> fromIterator(Iterator<V> iterator) {
         return new Tuple1<>(iterator.next());
     }
 
@@ -55,10 +55,11 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
         return new Object[] { getValue0() };
     }
 
+    private static final Comparator<Comparable<Object>> comparator = Comparator.nullsFirst(Comparator.naturalOrder());
+
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple1<T0> o) {
-        return Comparator.nullsFirst(Comparator.<Comparable>naturalOrder())
-                .compare((Comparable) this.getValue0(), (Comparable) o.getValue0());
+        return comparator.compare((Comparable) this.getValue0(), (Comparable) o.getValue0());
     }
 
     @Override public boolean equals(Object o) {
