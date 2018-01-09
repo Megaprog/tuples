@@ -61,7 +61,7 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
     }
 
     @Override public int getSize() {
-        return 3;
+        return 4;
     }
 
     @SuppressWarnings("unchecked")
@@ -82,13 +82,13 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
 
     private static final Comparator<Tuple4> comparator =
             Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple4 -> (Comparable) tuple4.getValue0()))
+            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue0()))
             .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple4 -> (Comparable) tuple4.getValue1()))
+            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue1()))
             .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple4 -> (Comparable) tuple4.getValue2())))
+            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue2())))
             .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple4 -> (Comparable) tuple4.getValue3()))));
+            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue3()))));
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple4<T0, T1, T2, T3> o) {
