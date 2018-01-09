@@ -22,17 +22,17 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
         this.value3 = value3;
     }
 
-    public <V0, V1, V2, V3> Tuple4<V0, V1, V2, V3> of(V0 value0, V1 value1, V2 value2, V3 value3) {
-        return new Tuple4<>(value0, value1, value2, value3);
+    public static <V0, V1, V2, V3> Tuple4<V0, V1, V2, V3> of(V0 v0, V1 v1, V2 v2, V3 v3) {
+        return new Tuple4<>(v0, v1, v2, v3);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A> Tuple4<V0, V1, V2, V3> fromArray(A[] values) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A> Tuple4<V0, V1, V2, V3> fromArray(A[] values) {
         return new Tuple4<>((V0) values[0], (V1) values[1], (V2) values[2], (V3) values[3]);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A> Tuple4<V0, V1, V2, V3> fromIterator(Iterator<A> iterator) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A> Tuple4<V0, V1, V2, V3> fromIterator(Iterator<A> iterator) {
         return new Tuple4<>((V0) iterator.next(), (V1) iterator.next(), (V2) iterator.next(), (V3) iterator.next());
     }
 

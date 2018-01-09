@@ -8,7 +8,7 @@ public class Tuple0 implements Tuple, Comparable<Tuple0> {
     protected Tuple0() {
     }
 
-    public Tuple0 instance() {
+    public static Tuple0 instance() {
         return INSTANCE;
     }
 

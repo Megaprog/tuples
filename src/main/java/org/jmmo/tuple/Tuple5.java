@@ -24,17 +24,17 @@ public class Tuple5<T0, T1, T2, T3, T4> implements Tuple, Comparable<Tuple5<T0, 
         this.value4 = value4;
     }
 
-    public <V0, V1, V2, V3, V4> Tuple5<V0, V1, V2, V3, V4> of(V0 value0, V1 value1, V2 value2, V3 value3, V4 value4) {
-        return new Tuple5<>(value0, value1, value2, value3, value4);
+    public static <V0, V1, V2, V3, V4> Tuple5<V0, V1, V2, V3, V4> of(V0 v0, V1 v1, V2 v2, V3 v3, V4 v4) {
+        return new Tuple5<>(v0, v1, v2, v3, v4);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A, V4 extends A> Tuple5<V0, V1, V2, V3, V4> fromArray(A[] values) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A, V4 extends A> Tuple5<V0, V1, V2, V3, V4> fromArray(A[] values) {
         return new Tuple5<>((V0) values[0], (V1) values[1], (V2) values[2], (V3) values[3], (V4) values[4]);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A, V4 extends A> Tuple5<V0, V1, V2, V3, V4> fromIterator(Iterator<A> iterator) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A, V3 extends A, V4 extends A> Tuple5<V0, V1, V2, V3, V4> fromIterator(Iterator<A> iterator) {
         return new Tuple5<>((V0) iterator.next(), (V1) iterator.next(), (V2) iterator.next(), (V3) iterator.next(), (V4) iterator.next());
     }
 
@@ -80,7 +80,7 @@ public class Tuple5<T0, T1, T2, T3, T4> implements Tuple, Comparable<Tuple5<T0, 
             case 4: return (E) getValue4();
         }
 
-        throw new IndexOutOfBoundsException("Tuple4 contains four elements but " + i + " element requested");
+        throw new IndexOutOfBoundsException("Tuple5 contains five elements but " + i + " element requested");
     }
 
     @Override public Object[] toArray() {

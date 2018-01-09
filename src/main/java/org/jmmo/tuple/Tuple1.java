@@ -15,16 +15,16 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
         this.value0 = value0;
     }
 
-    public <V> Tuple1<V> of(V value0) {
-        return new Tuple1<>(value0);
+    public static <V0> Tuple1<V0> of(V0 v0) {
+        return new Tuple1<>(v0);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V extends A> Tuple1<V> fromArray(A[] values) {
+    public static <A, V extends A> Tuple1<V> fromArray(A[] values) {
         return new Tuple1<>((V) values[0]);
     }
 
-    public <V> Tuple1<V> fromIterator(Iterator<V> iterator) {
+    public static <V> Tuple1<V> fromIterator(Iterator<V> iterator) {
         return new Tuple1<>(iterator.next());
     }
 

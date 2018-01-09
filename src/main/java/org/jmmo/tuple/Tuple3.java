@@ -20,17 +20,17 @@ public class Tuple3<T0, T1, T2> implements Tuple, Comparable<Tuple3<T0, T1, T2>>
         this.value2 = value2;
     }
 
-    public <V0, V1, V2> Tuple3<V0, V1, V2> of(V0 value0, V1 value1, V2 value2) {
-        return new Tuple3<>(value0, value1, value2);
+    public static <V0, V1, V2> Tuple3<V0, V1, V2> of(V0 v0, V1 v1, V2 v2) {
+        return new Tuple3<>(v0, v1, v2);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A> Tuple3<V0, V1, V2> fromArray(A[] values) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A> Tuple3<V0, V1, V2> fromArray(A[] values) {
         return new Tuple3<>((V0) values[0], (V1) values[1], (V2) values[2]);
     }
 
     @SuppressWarnings("unchecked")
-    public <A, V0 extends A, V1 extends A, V2 extends A> Tuple3<V0, V1, V2> fromIterator(Iterator<A> iterator) {
+    public static <A, V0 extends A, V1 extends A, V2 extends A> Tuple3<V0, V1, V2> fromIterator(Iterator<A> iterator) {
         return new Tuple3<>((V0) iterator.next(), (V1) iterator.next(), (V2) iterator.next());
     }
 
