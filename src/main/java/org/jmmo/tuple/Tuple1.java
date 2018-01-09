@@ -48,7 +48,7 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
             case 0: return (E) getValue0();
         }
 
-        throw new IndexOutOfBoundsException("Tuple1 has one element but " + i + " element requested");
+        throw new IndexOutOfBoundsException("Tuple1 contains one element but " + i + " element requested");
     }
 
     @Override public Object[] toArray() {

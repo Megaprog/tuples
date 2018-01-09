@@ -7,6 +7,7 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 
 public class Tuple2<T0, T1> implements Tuple, Comparable<Tuple2<T0, T1>> {
+    private static final long serialVersionUID = 2319789519451835186L;
 
     private final T0 value0;
     private final T1 value1;
@@ -56,7 +57,7 @@ public class Tuple2<T0, T1> implements Tuple, Comparable<Tuple2<T0, T1>> {
             case 1: return (E) getValue1();
         }
 
-        throw new IndexOutOfBoundsException("Tuple2 has two elements but " + i + " element requested");
+        throw new IndexOutOfBoundsException("Tuple2 contains two elements but " + i + " element requested");
     }
 
     @Override public Object[] toArray() {
@@ -78,18 +79,18 @@ public class Tuple2<T0, T1> implements Tuple, Comparable<Tuple2<T0, T1>> {
         if (this == o) return true;
         if (!(o instanceof Tuple2)) return false;
         Tuple2<?, ?> tuple2 = (Tuple2<?, ?>) o;
-        return Objects.equals(value0, tuple2.value0) &&
-                Objects.equals(value1, tuple2.value1);
+        return Objects.equals(getValue0(), tuple2.getValue0()) &&
+                Objects.equals(getValue1(), tuple2.getValue1());
     }
 
     @Override public int hashCode() {
-        return Objects.hash(value0, value1);
+        return Objects.hash(getValue0(), getValue1());
     }
 
     @Override public String toString() {
         return "Tuple2{" +
-                "value0=" + value0 +
-                ", value1=" + value1 +
+                "value0=" + getValue0() +
+                ", value1=" + getValue1() +
                 '}';
     }
 }
