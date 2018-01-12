@@ -57,11 +57,11 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
         return new Object[] { getValue0() };
     }
 
-    private static final Comparator<Comparable<Object>> comparator = Comparator.nullsFirst(Comparator.naturalOrder());
+    protected static final Comparator<Comparable<Object>> nullComparator = Comparator.nullsFirst(Comparator.naturalOrder());
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple1<T0> o) {
-        return comparator.compare((Comparable) this.getValue0(), (Comparable) o.getValue0());
+        return nullComparator.compare((Comparable) this.getValue0(), (Comparable) o.getValue0());
     }
 
     @Override public boolean equals(Object o) {

@@ -87,17 +87,17 @@ public class Tuple5<T0, T1, T2, T3, T4> implements Tuple, Comparable<Tuple5<T0, 
         return new Object[] { getValue0(), getValue1(), getValue2(), getValue3(), getValue4() };
     }
 
+    @SuppressWarnings("unchecked")
     private static final Comparator<Tuple5> comparator =
-            Comparator.nullsFirst(
-            Comparator.<Tuple5, Comparable>comparing(tuple -> (Comparable) tuple.getValue0()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple5, Comparable>comparing(tuple -> (Comparable) tuple.getValue1()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple5, Comparable>comparing(tuple -> (Comparable) tuple.getValue2())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple5, Comparable>comparing(tuple -> (Comparable) tuple.getValue3())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple5, Comparable>comparing(tuple -> (Comparable) tuple.getValue4()))));
+            Comparator.<Tuple5, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue0(), Tuple1.nullComparator)
+            .thenComparing(
+            Comparator.<Tuple5, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue1(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple5, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue2(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple5, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue3(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple5, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue4(), Tuple1.nullComparator));
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple5<T0, T1, T2, T3, T4> o) {

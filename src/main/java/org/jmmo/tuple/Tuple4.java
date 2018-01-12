@@ -80,15 +80,15 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
         return new Object[] { getValue0(), getValue1(), getValue2(), getValue3() };
     }
 
+    @SuppressWarnings("unchecked")
     private static final Comparator<Tuple4> comparator =
-            Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue0()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue1()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue2())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple4, Comparable>comparing(tuple -> (Comparable) tuple.getValue3()))));
+            Comparator.<Tuple4, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue0(), Tuple1.nullComparator)
+            .thenComparing(
+            Comparator.<Tuple4, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue1(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple4, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue2(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple4, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue3(), Tuple1.nullComparator));
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple4<T0, T1, T2, T3> o) {

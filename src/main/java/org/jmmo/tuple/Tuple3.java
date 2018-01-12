@@ -73,13 +73,13 @@ public class Tuple3<T0, T1, T2> implements Tuple, Comparable<Tuple3<T0, T1, T2>>
         return new Object[] { getValue0(), getValue1(), getValue2() };
     }
 
+    @SuppressWarnings("unchecked")
     private static final Comparator<Tuple3> comparator =
-            Comparator.nullsFirst(
-            Comparator.<Tuple3, Comparable>comparing(tuple3 -> (Comparable) tuple3.getValue0()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple3, Comparable>comparing(tuple3 -> (Comparable) tuple3.getValue1()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple3, Comparable>comparing(tuple3 -> (Comparable) tuple3.getValue2()))));
+            Comparator.<Tuple3, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue0(), Tuple1.nullComparator)
+            .thenComparing(
+            Comparator.<Tuple3, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue1(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple3, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue2(), Tuple1.nullComparator));
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple3<T0, T1, T2> o) {

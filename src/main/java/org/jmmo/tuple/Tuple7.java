@@ -106,21 +106,21 @@ public class Tuple7<T0, T1, T2, T3, T4, T5, T6> implements Tuple, Comparable<Tup
         return new Object[] { getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5(), getValue6() };
     }
 
+    @SuppressWarnings("unchecked")
     private static final Comparator<Tuple7> comparator =
-            Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue0()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue1()))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue2())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue3())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue4())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue5())))
-            .thenComparing(Comparator.nullsFirst(
-            Comparator.<Tuple7, Comparable>comparing(tuple -> (Comparable) tuple.getValue6()))));
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue0(), Tuple1.nullComparator)
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue1(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue2(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue3(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue4(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue5(), Tuple1.nullComparator))
+            .thenComparing(
+            Comparator.<Tuple7, Comparable<Object>>comparing(tuple -> (Comparable) tuple.getValue6(), Tuple1.nullComparator));
 
     @SuppressWarnings("unchecked")
     @Override public int compareTo(Tuple7<T0, T1, T2, T3, T4, T5, T6> o) {
