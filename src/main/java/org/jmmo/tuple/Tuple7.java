@@ -84,7 +84,7 @@ public class Tuple7<T0, T1, T2, T3, T4, T5, T6> implements Tuple, Comparable<Tup
     }
 
     @Override public int getSize() {
-        return 6;
+        return 7;
     }
 
     @SuppressWarnings("unchecked")
