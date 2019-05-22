@@ -7,7 +7,7 @@ import java.util.Spliterators;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-interface Tuple extends Serializable, Iterable<Object> {
+public interface Tuple extends Serializable, Iterable<Object> {
 
     int getSize();
 
