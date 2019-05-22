@@ -21,3 +21,7 @@ Or download the latest build at:
     https://github.com/Megaprog/tuples/releases
 
 ## How to use it?
+```java
+Tuple2 pair = Tuples.of("a", 1);
+Tuple3 triplet = Tuples.of("a", 1, 2.0);
+```
