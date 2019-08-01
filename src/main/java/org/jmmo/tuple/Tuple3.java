@@ -3,6 +3,7 @@ package org.jmmo.tuple;
 import org.jmmo.function.Consumer3;
 import org.jmmo.function.Function3;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -90,13 +91,13 @@ public class Tuple3<T0, T1, T2> implements Tuple, Comparable<Tuple3<T0, T1, T2>>
         if (this == o) return true;
         if (!(o instanceof Tuple3)) return false;
         Tuple3<?, ?, ?> tuple3 = (Tuple3<?, ?, ?>) o;
-        return Objects.equals(getValue0(), tuple3.getValue0()) &&
-                Objects.equals(getValue1(), tuple3.getValue1()) &&
-                Objects.equals(getValue2(), tuple3.getValue2());
+        return Objects.deepEquals(getValue0(), tuple3.getValue0()) &&
+                Objects.deepEquals(getValue1(), tuple3.getValue1()) &&
+                Objects.deepEquals(getValue2(), tuple3.getValue2());
     }
 
     @Override public int hashCode() {
-        return Objects.hash(getValue0(), getValue1(), getValue2());
+        return Arrays.deepHashCode(new Object[] {getValue0(), getValue1(), getValue2()});
     }
 
     @Override public String toString() {

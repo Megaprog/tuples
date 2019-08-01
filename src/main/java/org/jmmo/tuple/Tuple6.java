@@ -3,6 +3,7 @@ package org.jmmo.tuple;
 import org.jmmo.function.Consumer6;
 import org.jmmo.function.Function6;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -120,16 +121,16 @@ public class Tuple6<T0, T1, T2, T3, T4, T5> implements Tuple, Comparable<Tuple6<
         if (this == o) return true;
         if (!(o instanceof Tuple6)) return false;
         Tuple6<?, ?, ?, ?, ?, ?> tuple6 = (Tuple6<?, ?, ?, ?, ?, ?>) o;
-        return Objects.equals(getValue0(), tuple6.getValue0()) &&
-                Objects.equals(getValue1(), tuple6.getValue1()) &&
-                Objects.equals(getValue2(), tuple6.getValue2()) &&
-                Objects.equals(getValue3(), tuple6.getValue3()) &&
-                Objects.equals(getValue4(), tuple6.getValue4()) &&
-                Objects.equals(getValue5(), tuple6.getValue5());
+        return Objects.deepEquals(getValue0(), tuple6.getValue0()) &&
+                Objects.deepEquals(getValue1(), tuple6.getValue1()) &&
+                Objects.deepEquals(getValue2(), tuple6.getValue2()) &&
+                Objects.deepEquals(getValue3(), tuple6.getValue3()) &&
+                Objects.deepEquals(getValue4(), tuple6.getValue4()) &&
+                Objects.deepEquals(getValue5(), tuple6.getValue5());
     }
 
     @Override public int hashCode() {
-        return Objects.hash(getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5());
+        return Arrays.deepHashCode(new Object[] {getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5()});
     }
 
     @Override public String toString() {

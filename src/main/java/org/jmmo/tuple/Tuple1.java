@@ -1,5 +1,6 @@
 package org.jmmo.tuple;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -68,11 +69,11 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
         if (this == o) return true;
         if (!(o instanceof Tuple1)) return false;
         Tuple1<?> tuple1 = (Tuple1<?>) o;
-        return Objects.equals(getValue0(), tuple1.getValue0());
+        return Objects.deepEquals(getValue0(), tuple1.getValue0());
     }
 
     @Override public int hashCode() {
-        return Objects.hash(getValue0());
+        return Arrays.deepHashCode(new Object[] {getValue0()});
     }
 
     @Override public String toString() {

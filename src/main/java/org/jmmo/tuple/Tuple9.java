@@ -3,6 +3,7 @@ package org.jmmo.tuple;
 import org.jmmo.function.Consumer9;
 import org.jmmo.function.Function9;
 
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -156,21 +157,21 @@ public class Tuple9<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements Tuple, Compar
         if (this == o) return true;
         if (!(o instanceof Tuple9)) return false;
         Tuple9<?, ?, ?, ?, ?, ?, ?, ?, ?> tuple9 = (Tuple9<?, ?, ?, ?, ?, ?, ?, ?, ?>) o;
-        return Objects.equals(getValue0(), tuple9.getValue0()) &&
-                Objects.equals(getValue1(), tuple9.getValue1()) &&
-                Objects.equals(getValue2(), tuple9.getValue2()) &&
-                Objects.equals(getValue3(), tuple9.getValue3()) &&
-                Objects.equals(getValue4(), tuple9.getValue4()) &&
-                Objects.equals(getValue5(), tuple9.getValue5()) &&
-                Objects.equals(getValue6(), tuple9.getValue6()) &&
-                Objects.equals(getValue7(), tuple9.getValue7()) &&
-                Objects.equals(getValue8(), tuple9.getValue8());
+        return Objects.deepEquals(getValue0(), tuple9.getValue0()) &&
+                Objects.deepEquals(getValue1(), tuple9.getValue1()) &&
+                Objects.deepEquals(getValue2(), tuple9.getValue2()) &&
+                Objects.deepEquals(getValue3(), tuple9.getValue3()) &&
+                Objects.deepEquals(getValue4(), tuple9.getValue4()) &&
+                Objects.deepEquals(getValue5(), tuple9.getValue5()) &&
+                Objects.deepEquals(getValue6(), tuple9.getValue6()) &&
+                Objects.deepEquals(getValue7(), tuple9.getValue7()) &&
+                Objects.deepEquals(getValue8(), tuple9.getValue8());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5(),
-                getValue6(), getValue7(), getValue8());
+        return Arrays.deepHashCode(new Object[] {getValue0(), getValue1(), getValue2(), getValue3(), getValue4(),
+                getValue5(), getValue6(), getValue7(), getValue8()});
     }
 
     @Override public String toString() {
