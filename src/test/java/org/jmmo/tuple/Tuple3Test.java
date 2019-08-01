@@ -156,6 +156,12 @@ class Tuple3Test {
     }
 
     @Test
+    void deepEquals() {
+        assertEquals(Tuple3.of(1, 2L, new int[] {3, 4}), Tuple3.of(1, 2L, new int[] {3, 4}));
+        assertNotEquals(Tuple3.of(1, 2L, new int[] {3, 5}), Tuple3.of(1, 2L, new int[] {3, 4}));
+    }
+
+    @Test
     void testHashCode() {
         Tuple3<Integer, Long, Double> other = Tuple3.of(1, 2L, 3.0);
         assertEquals(tuple.hashCode(), other.hashCode());
