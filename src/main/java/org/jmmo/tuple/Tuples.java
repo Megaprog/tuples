@@ -5,8 +5,8 @@ import java.util.Iterator;
 public class Tuples {
     private Tuples() {}
 
-    public static Tuple0 empty() {
-        return Tuple0.instance();
+    public static Tuple0 of() {
+        return Tuple0.INSTANCE;
     }
 
     public static <V0> Tuple1<V0> of(V0 v0) {
@@ -51,7 +51,7 @@ public class Tuples {
     public static <A> Tuple fromArray(A[] values)  {
         switch (values.length) {
             case 0:
-                return empty();
+                return of();
             case 1:
                 return Tuple1.fromArray(values);
             case 2:
@@ -124,7 +124,7 @@ public class Tuples {
                 return of(value1);
             }
         } else {
-            return empty();
+            return of();
         }
     }
 }

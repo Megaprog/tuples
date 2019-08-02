@@ -1,6 +1,7 @@
 package org.jmmo.tuple;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.Spliterator;
 import java.util.Spliterators;
@@ -47,5 +48,9 @@ public interface Tuple extends Serializable, Iterable<Object> {
         @Override public Object next() {
             return tuple.get(index++);
         }
+    }
+
+    static int deepHash(Object... values) {
+        return Arrays.deepHashCode(values);
     }
 }

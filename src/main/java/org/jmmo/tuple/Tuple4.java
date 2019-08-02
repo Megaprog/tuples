@@ -3,7 +3,6 @@ package org.jmmo.tuple;
 import org.jmmo.function.Consumer4;
 import org.jmmo.function.Function4;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -107,7 +106,7 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
     }
 
     @Override public int hashCode() {
-        return Arrays.deepHashCode(new Object[] {getValue0(), getValue1(), getValue2(), getValue3()});
+        return Tuple.deepHash(getValue0(), getValue1(), getValue2(), getValue3());
     }
 
     @Override public String toString() {

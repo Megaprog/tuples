@@ -3,7 +3,6 @@ package org.jmmo.tuple;
 import org.jmmo.function.Consumer9;
 import org.jmmo.function.Function9;
 
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Objects;
@@ -170,8 +169,8 @@ public class Tuple9<T0, T1, T2, T3, T4, T5, T6, T7, T8> implements Tuple, Compar
 
     @Override
     public int hashCode() {
-        return Arrays.deepHashCode(new Object[] {getValue0(), getValue1(), getValue2(), getValue3(), getValue4(),
-                getValue5(), getValue6(), getValue7(), getValue8()});
+        return Tuple.deepHash(getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5(), getValue6(),
+                getValue7(), getValue8());
     }
 
     @Override public String toString() {

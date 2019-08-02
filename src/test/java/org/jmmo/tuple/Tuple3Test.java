@@ -168,6 +168,12 @@ class Tuple3Test {
     }
 
     @Test
+    void testDeepHash() {
+        assertEquals(Tuple3.of(1, 2L, new int[] {3, 4}).hashCode(), Tuple3.of(1, 2L, new int[] {3, 4}).hashCode());
+        assertNotEquals(Tuple3.of(1, 2L, new int[] {3, 5}).hashCode(), Tuple3.of(1, 2L, new int[] {3, 4}).hashCode());
+    }
+
+    @Test
     void testToString() {
         assertEquals("Tuple3{value0=1, value1=2, value2=3.0}", tuple.toString());
     }

@@ -3,12 +3,12 @@ package org.jmmo.tuple;
 public class Tuple0 implements Tuple, Comparable<Tuple0> {
     private static final long serialVersionUID = 8036223661372630498L;
 
-    private static final Tuple0 INSTANCE = new Tuple0();
+    protected static final Tuple0 INSTANCE = new Tuple0();
 
     protected Tuple0() {
     }
 
-    public static Tuple0 instance() {
+    public static Tuple0 of() {
         return INSTANCE;
     }
 
@@ -27,8 +27,7 @@ public class Tuple0 implements Tuple, Comparable<Tuple0> {
     @Override public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Tuple0)) return false;
-        Tuple0 other = (Tuple0) o;
-        return other.getSize() == 0;
+        return true;
     }
 
     @Override public int hashCode() {
