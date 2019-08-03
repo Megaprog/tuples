@@ -46,8 +46,8 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
 
     @SuppressWarnings("unchecked")
     @Override public <E> E get(int i) {
-        switch (i) {
-            case 0: return (E) getValue0();
+        if (i == 0) {
+            return (E) getValue0();
         }
 
         throw new IndexOutOfBoundsException("Tuple1 contains one element but " + i + " element requested");

@@ -26,8 +26,7 @@ public class Tuple0 implements Tuple, Comparable<Tuple0> {
 
     @Override public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Tuple0)) return false;
-        return true;
+        return o instanceof Tuple0;
     }
 
     @Override public int hashCode() {
