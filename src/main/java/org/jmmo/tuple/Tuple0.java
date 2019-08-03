@@ -35,6 +35,6 @@ public class Tuple0 implements Tuple, Comparable<Tuple0> {
     }
 
     @Override public String toString() {
-        return "Tuple0{}";
+        return "Tuple0[]";
     }
 }

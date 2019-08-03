@@ -72,12 +72,10 @@ public class Tuple1<T0> implements Tuple, Comparable<Tuple1<T0>> {
     }
 
     @Override public int hashCode() {
-        return Tuple.deepHash(getValue0());
+        return Tuple.hashCode(this);
     }
 
     @Override public String toString() {
-        return "Tuple1{" +
-                "value0=" + getValue0() +
-                '}';
+        return Tuple.toString(this);
     }
 }

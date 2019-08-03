@@ -50,7 +50,11 @@ public interface Tuple extends Serializable, Iterable<Object> {
         }
     }
 
-    static int deepHash(Object... values) {
-        return Arrays.deepHashCode(values);
+    static int hashCode(Tuple tuple) {
+        return Arrays.deepHashCode(tuple.toArray());
+    }
+
+    static String toString(Tuple tuple) {
+        return "Tuple" + tuple.getSize() + Arrays.deepToString(tuple.toArray());
     }
 }

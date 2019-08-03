@@ -175,6 +175,6 @@ class Tuple3Test {
 
     @Test
     void testToString() {
-        assertEquals("Tuple3{value0=1, value1=2, value2=3.0}", tuple.toString());
+        assertEquals("Tuple5[1, 2, 3.0, a, true]", Tuples.of(1, 2L, 3.0, "a", true).toString());
     }
 }

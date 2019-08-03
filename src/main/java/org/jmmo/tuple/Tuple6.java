@@ -129,17 +129,10 @@ public class Tuple6<T0, T1, T2, T3, T4, T5> implements Tuple, Comparable<Tuple6<
     }
 
     @Override public int hashCode() {
-        return Tuple.deepHash(getValue0(), getValue1(), getValue2(), getValue3(), getValue4(), getValue5());
+        return Tuple.hashCode(this);
     }
 
     @Override public String toString() {
-        return "Tuple5{" +
-                "value0=" + getValue0() +
-                ", value1=" + getValue1() +
-                ", value2=" + getValue2() +
-                ", value3=" + getValue3() +
-                ", value4=" + getValue4() +
-                ", value5=" + getValue5() +
-                '}';
+        return Tuple.toString(this);
     }
 }

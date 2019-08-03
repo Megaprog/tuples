@@ -106,15 +106,10 @@ public class Tuple4<T0, T1, T2, T3> implements Tuple, Comparable<Tuple4<T0, T1, 
     }
 
     @Override public int hashCode() {
-        return Tuple.deepHash(getValue0(), getValue1(), getValue2(), getValue3());
+        return Tuple.hashCode(this);
     }
 
     @Override public String toString() {
-        return "Tuple4{" +
-                "value0=" + getValue0() +
-                ", value1=" + getValue1() +
-                ", value2=" + getValue2() +
-                ", value3=" + getValue3() +
-                '}';
+        return Tuple.toString(this);
     }
 }
